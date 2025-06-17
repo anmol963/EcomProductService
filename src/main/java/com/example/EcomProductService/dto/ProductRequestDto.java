@@ -9,6 +9,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ProductRequestDto {
     // id is not there in the requestDto because it will be auto generated
+    private int id;
+
     private String title;
 
     private double price;

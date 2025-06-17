@@ -1,9 +1,8 @@
 package com.example.EcomProductService.service;
-
 import com.example.EcomProductService.dto.ProductListResponseDto;
+import com.example.EcomProductService.dto.ProductRequestDto;
 import com.example.EcomProductService.dto.ProductResponseDto;
 import com.example.EcomProductService.model.Product;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,7 +11,7 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
     @Override
-    public List<ProductResponseDto> getAllProducts() {
+    public ProductListResponseDto getAllProducts() {
         return null;
     }
 
@@ -22,12 +21,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product createProduct(Product product) {
+    public ProductResponseDto createProduct(ProductRequestDto productRequestDto) {
         return null;
     }
 
     @Override
-    public Product deleteProduct(int id) {
+    public ProductResponseDto deleteProduct(int id) {
         return null;
     }
 

@@ -1,21 +1,20 @@
 package com.example.EcomProductService.service;
-
 import com.example.EcomProductService.dto.ProductListResponseDto;
+import com.example.EcomProductService.dto.ProductRequestDto;
 import com.example.EcomProductService.dto.ProductResponseDto;
 import com.example.EcomProductService.model.Product;
-import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
 public interface ProductService {
 
-    List<ProductResponseDto> getAllProducts();
+    ProductListResponseDto getAllProducts();
 
     ProductResponseDto getProductById(int id);
 
-    Product createProduct(Product product);
+    ProductResponseDto createProduct(ProductRequestDto productRequestDto);
 
-    Product deleteProduct(int id);
+    ProductResponseDto deleteProduct(int id);
 
     Product updateProduct(int id, Product product);
 }
