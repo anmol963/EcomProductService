@@ -1,13 +1,13 @@
 package com.example.EcomProductService.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
-public class ProductRequestDto {
+public class FakeStoreProductResponseDto {
+
+    private int id;
 
     private String title;
 
