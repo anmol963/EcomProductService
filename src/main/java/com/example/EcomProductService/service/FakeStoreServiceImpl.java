@@ -74,14 +74,20 @@ public class FakeStoreServiceImpl implements ProductService{
     }
 
     @Override
-    public ProductResponseDto deleteProduct(int id) {
+    public ProductResponseDto deleteProduct(int id) throws ProductNotFoundException {
+        ProductResponseDto productResponseDto = getProductById(id);
+        if(isNull(productResponseDto)) {
+            throw new ProductNotFoundException("Product not found with id: " + id);
+        }
         FakeStoreProductResponseDto fakeStoreProductResponseDto = this.fakeStoreAPIClient.deleteProduct(id);
         return fakeStoreResponseToProductResponse(fakeStoreProductResponseDto);
     }
 
     @Override
-    public Product updateProduct(int id, Product product) {
-        return null;
+    public ProductResponseDto updateProduct(ProductRequestDto productRequestDto, int id) {
+        FakeStoreProductRequestDto fakeStoreProductRequestDto = productRequestToFakeStoreRequest(productRequestDto);
+        FakeStoreProductResponseDto fakeStoreProductResponseDto = this.fakeStoreAPIClient.updateProduct(fakeStoreProductRequestDto, id);
+        return fakeStoreResponseToProductResponse(fakeStoreProductResponseDto);
     }
 
 

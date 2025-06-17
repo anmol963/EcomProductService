@@ -15,7 +15,7 @@ public interface ProductService {
 
     ProductResponseDto createProduct(ProductRequestDto productRequestDto);
 
-    ProductResponseDto deleteProduct(int id);
+    ProductResponseDto deleteProduct(int id) throws ProductNotFoundException;
 
-    Product updateProduct(int id, Product product);
+    ProductResponseDto updateProduct(ProductRequestDto productRequestDto, int id) ;
 }
