@@ -4,6 +4,7 @@ import com.example.EcomProductService.dto.*;
 import com.example.EcomProductService.exceptions.ProductNotFoundException;
 import com.example.EcomProductService.mapper.ProductMapper;
 import com.example.EcomProductService.model.Product;
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpMethod;
