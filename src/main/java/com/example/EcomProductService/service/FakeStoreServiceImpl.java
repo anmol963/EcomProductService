@@ -31,9 +31,9 @@ public class FakeStoreServiceImpl implements ProductService{
 
     @Override
     public ProductListResponseDto getAllProducts() {
+        /*
         RestTemplate restTemplate = new RestTemplate();
         String url = "https://fakestoreapi.com/products";
-        /*
          here to avoid the issue of type erasure, we use ProductResponseDto[].class
          ideally we should use DTO to interact with FakeStore API
         ProductResponseDto[] productResponse =

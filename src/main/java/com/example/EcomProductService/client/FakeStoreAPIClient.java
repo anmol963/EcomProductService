@@ -21,15 +21,14 @@ public class FakeStoreAPIClient {
 
     public RestTemplateBuilder restTemplateBuilder;
 
+    @Value("${fakestore.api.url}")
     private String fakeStoreApiUrl;
 
     @Value("${fakestore.api.path.product}")
     private String fakeStoreApiPathProduct;
 
-    public FakeStoreAPIClient(RestTemplateBuilder restTemplateBuilder
-                            , @Value("${fakestore.api.url}") String fakeStoreApiUrl) {
+    public FakeStoreAPIClient(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplateBuilder = restTemplateBuilder;
-        this.fakeStoreApiUrl = fakeStoreApiUrl;
     }
 
     public FakeStoreProductResponseDto createProduct(FakeStoreProductRequestDto productRequestDto) {
