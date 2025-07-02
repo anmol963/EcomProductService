@@ -47,6 +47,11 @@ public class InitServiceImpl implements InitiService{
         priceIphone.setAmount(100000);
         priceIphone.setDiscount(0);
 
+        Price priceTablet = new Price();
+        priceIphone.setCurrency("INR");
+        priceIphone.setAmount(36000);
+        priceIphone.setDiscount(0);
+
         Price priceMacbook = new Price();
         priceMacbook.setCurrency("INR");
         priceMacbook.setAmount(200000);
@@ -60,6 +65,7 @@ public class InitServiceImpl implements InitiService{
         priceIphone = priceRepository.save(priceIphone);
         priceMacbook = priceRepository.save(priceMacbook);
         priceIwatch = priceRepository.save(priceIwatch);
+        priceTablet = priceRepository.save(priceTablet);
 
         Product iphone = new Product();
         iphone.setTitle("Iphone 14 Pro");
@@ -68,6 +74,14 @@ public class InitServiceImpl implements InitiService{
         iphone.setPrice(priceIphone);
         iphone.setCategory(electronics);
         iphone = productRepository.save(iphone);
+
+        Product tablet = new Product();
+        tablet.setTitle("TabletS9");
+        tablet.setDescription("Flagship tablet with 128GB storage");
+        tablet.setImage("https://example.com/iphone14pro.jpg");
+        tablet.setPrice(priceTablet);
+        tablet.setCategory(electronics);
+        tablet = productRepository.save(tablet);
 
         Product macbook = new Product();
         macbook.setTitle("Macbook M2");
@@ -86,7 +100,7 @@ public class InitServiceImpl implements InitiService{
         iwatch = productRepository.save(iwatch);
 
         Order order = new Order();
-        order.setProduct(List.of(iphone, macbook, iwatch));
+        order.setProducts(List.of(iphone, macbook, iwatch));
         order = orderRepository.save(order);
     }
 }

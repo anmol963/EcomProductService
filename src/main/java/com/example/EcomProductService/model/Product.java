@@ -17,11 +17,11 @@ public class Product extends BaseModel {
 
     private String image;
 
-    @ManyToOne
-    private Category category;
-
     @OneToOne
     private Price price;
+
+    @ManyToOne
+    private Category category;
 }
 
 /*

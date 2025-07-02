@@ -4,7 +4,10 @@ import com.example.EcomProductService.dto.FakeStoreProductRequestDto;
 import com.example.EcomProductService.dto.FakeStoreProductResponseDto;
 import com.example.EcomProductService.dto.ProductRequestDto;
 import com.example.EcomProductService.dto.ProductResponseDto;
+import com.example.EcomProductService.model.Product;
 import org.modelmapper.ModelMapper;
+
+import java.util.List;
 
 public class ProductMapper {
 
@@ -32,5 +35,16 @@ public class ProductMapper {
 //        return productResponseDto;
         modelMapper = new ModelMapper();
         return modelMapper.map(fakeStoreProductResponseDto, ProductResponseDto.class);
+    }
+
+    public static ProductResponseDto productToProductResponseDto(Product product) {
+        ProductResponseDto productResponseDto = new ProductResponseDto();
+        productResponseDto.setId(product.getId());
+        productResponseDto.setTitle(product.getTitle());
+        productResponseDto.setDescription(product.getDescription());
+        productResponseDto.setImage(product.getImage());
+        productResponseDto.setPrice(product.getPrice().getAmount());
+        productResponseDto.setCategory(product.getCategory().getCategoryName());
+        return productResponseDto;
     }
 }

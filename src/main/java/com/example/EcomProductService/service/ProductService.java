@@ -18,4 +18,6 @@ public interface ProductService {
     ProductResponseDto deleteProduct(int id) throws ProductNotFoundException;
 
     ProductResponseDto updateProduct(ProductRequestDto productRequestDto, int id) ;
+
+    ProductResponseDto findProductByTitle(String title);
 }

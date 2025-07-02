@@ -18,7 +18,7 @@ import static com.example.EcomProductService.mapper.ProductMapper.fakeStoreRespo
 import static com.example.EcomProductService.utils.ProductUtils.isNull;
 
 @Service("fakeStoreService")
-@Primary // This annotation indicates that this service should be the primary bean of type ProductService
+//@Primary // This annotation indicates that this service should be the primary bean of type ProductService
 public class FakeStoreServiceImpl implements ProductService{
 
     private RestTemplateBuilder restTemplateBuilder;
@@ -91,5 +91,8 @@ public class FakeStoreServiceImpl implements ProductService{
         return fakeStoreResponseToProductResponse(fakeStoreProductResponseDto);
     }
 
-
+    @Override
+    public ProductResponseDto findProductByTitle(String title) {
+        return null;
+    }
 }

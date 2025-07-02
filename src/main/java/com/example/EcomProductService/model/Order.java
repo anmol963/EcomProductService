@@ -10,8 +10,10 @@ import java.util.List;
 @Data
 public class Order extends BaseModel{
 
+    private double totalPrice;
+
     @ManyToMany
-    private List<Product> product;
+    private List<Product> products;
 }
 
 
