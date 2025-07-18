@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 // we replace repo layer with a fake store API client
 // This client will be used to interact with the fake store API for product operations
@@ -39,7 +40,7 @@ public class FakeStoreAPIClient {
         return productResponseDto;
     }
 
-    public FakeStoreProductResponseDto getProductById(int id) {
+    public FakeStoreProductResponseDto getProductById(UUID id) {
         RestTemplate restTemplate = restTemplateBuilder.build();
         String url = fakeStoreApiUrl + fakeStoreApiPathProduct + "/" + id;
         FakeStoreProductResponseDto fakeStoreProductResponseDto =
@@ -55,7 +56,7 @@ public class FakeStoreAPIClient {
         return Arrays.asList(productResponseArray);
     }
 
-    public FakeStoreProductResponseDto deleteProduct(int id) {
+    public FakeStoreProductResponseDto deleteProduct(UUID id) {
         RestTemplate restTemplate = restTemplateBuilder.build();
         String url = fakeStoreApiUrl + fakeStoreApiPathProduct + "/" + id;
         FakeStoreProductResponseDto response =
@@ -63,7 +64,7 @@ public class FakeStoreAPIClient {
         return response;
     }
 
-    public FakeStoreProductResponseDto updateProduct(FakeStoreProductRequestDto productRequestDto, int id) {
+    public FakeStoreProductResponseDto updateProduct(FakeStoreProductRequestDto productRequestDto, UUID id) {
         RestTemplate restTemplate = restTemplateBuilder.build();
         String url = fakeStoreApiUrl + fakeStoreApiPathProduct + "/" + id;
         HttpEntity<FakeStoreProductRequestDto> productRequestEntity = new HttpEntity<>(productRequestDto);

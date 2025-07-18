@@ -21,7 +21,7 @@ public class Order extends BaseModel{
     Product       Order
     1               m
     m               1
-    Many to many does not need to be directional.
+    Many to many does not need to be bi-directional.
     For example, when we search for a product on an ecommerce app, it doesn't show us the orders
     that contain that product.
     So there is no need to have a reference of order in product.

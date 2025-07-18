@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 import static com.example.EcomProductService.mapper.ProductMapper.productRequestToFakeStoreRequest;
 import static com.example.EcomProductService.mapper.ProductMapper.fakeStoreResponseToProductResponse;
@@ -59,7 +60,7 @@ public class FakeStoreServiceImpl implements ProductService{
 
 
     @Override
-    public ProductResponseDto getProductById(int id) throws ProductNotFoundException {
+    public ProductResponseDto getProductById(UUID id) throws ProductNotFoundException {
         FakeStoreProductResponseDto fakeStoreProductResponseDto = this.fakeStoreAPIClient.getProductById(id);
         if(isNull(fakeStoreProductResponseDto)) {
             throw new ProductNotFoundException("Product not found with id: " + id);
@@ -75,7 +76,7 @@ public class FakeStoreServiceImpl implements ProductService{
     }
 
     @Override
-    public ProductResponseDto deleteProduct(int id) throws ProductNotFoundException {
+    public ProductResponseDto deleteProduct(UUID id) throws ProductNotFoundException {
         ProductResponseDto productResponseDto = getProductById(id);
         if(isNull(productResponseDto)) {
             throw new ProductNotFoundException("Product not found with id: " + id);
@@ -85,7 +86,7 @@ public class FakeStoreServiceImpl implements ProductService{
     }
 
     @Override
-    public ProductResponseDto updateProduct(ProductRequestDto productRequestDto, int id) {
+    public ProductResponseDto updateProduct(ProductRequestDto productRequestDto, UUID id) {
         FakeStoreProductRequestDto fakeStoreProductRequestDto = productRequestToFakeStoreRequest(productRequestDto);
         FakeStoreProductResponseDto fakeStoreProductResponseDto = this.fakeStoreAPIClient.updateProduct(fakeStoreProductRequestDto, id);
         return fakeStoreResponseToProductResponse(fakeStoreProductResponseDto);
@@ -93,6 +94,36 @@ public class FakeStoreServiceImpl implements ProductService{
 
     @Override
     public ProductResponseDto findProductByTitle(String title) {
+        return null;
+    }
+
+    @Override
+    public ProductResponseDto findProductByTitleAndDescription(String title, String description) {
+        return null;
+    }
+
+    @Override
+    public ProductResponseDto findProductByTitleOrDescription(String title, String description) {
+        return null;
+    }
+
+    @Override
+    public ProductResponseDto findProductByPrice(double amount) {
+        return null;
+    }
+
+    @Override
+    public ProductResponseDto findProductByPriceLessThan(double amount) {
+        return null;
+    }
+
+    @Override
+    public ProductResponseDto findProductByPriceBetween(double minPrice, double maxPrice) {
+        return null;
+    }
+
+    @Override
+    public List<ProductResponseDto> findProductByCategoryName(String categoryName) {
         return null;
     }
 }

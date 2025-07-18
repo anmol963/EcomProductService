@@ -6,18 +6,31 @@ import com.example.EcomProductService.exceptions.ProductNotFoundException;
 import com.example.EcomProductService.model.Product;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface ProductService {
 
     ProductListResponseDto getAllProducts();
 
-    ProductResponseDto getProductById(int id) throws ProductNotFoundException;
+    ProductResponseDto getProductById(UUID id) throws ProductNotFoundException;
 
     ProductResponseDto createProduct(ProductRequestDto productRequestDto);
 
-    ProductResponseDto deleteProduct(int id) throws ProductNotFoundException;
+    ProductResponseDto deleteProduct(UUID id) throws ProductNotFoundException;
 
-    ProductResponseDto updateProduct(ProductRequestDto productRequestDto, int id) ;
+    ProductResponseDto updateProduct(ProductRequestDto productRequestDto, UUID id) throws ProductNotFoundException;
 
     ProductResponseDto findProductByTitle(String title);
+
+    ProductResponseDto findProductByTitleAndDescription(String title, String description);
+
+    ProductResponseDto findProductByTitleOrDescription(String title, String description);
+
+    ProductResponseDto findProductByPrice(double amount);
+
+    ProductResponseDto findProductByPriceLessThan(double amount);
+
+    ProductResponseDto findProductByPriceBetween(double minPrice, double maxPrice);
+
+    List<ProductResponseDto> findProductByCategoryName(String categoryName);
 }
